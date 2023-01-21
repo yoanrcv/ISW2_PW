@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Examen Práctico</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/listarPrac">Gestionar Examen práctico</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Registrar Examen Práctico<span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Registro de Examenes Practicos</h1>
+                <div class="card-body">
+                    <form th:action="@{/guardarPrac}" th:object="${epractico}" method="post">
+                       
+    
+
+                    <div class="form-group">
+                        <label for="">CI :</label>
+                        <input type="number" name="ci" th:field="*{ci}" class="form-control"
+                            placeholder="Introduzca el CI" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">fecha de aplicación :</label>
+                        <input type="date" name="fecha" th:field="*{fecha_aplic}" class="form-control"
+                            placeholder="Introduzca la Fecha de aplicación" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for=""> Evaluación:</label>
+                        <input type="text" name="evaluacion" th:field="*{evaluacion}" class="form-control"
+                            placeholder="Introduzca la evaluacion" required>
+
+                    </div>
+                   
+                </div>
+                <div class="box-footer">
+                    <button onclick=" return confirm('Accion realizada con exito');"class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

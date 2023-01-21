@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Licencia de conducción</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../demo.css">
+
+</head>
+
+<body>
+
+
+    <div class="navigation">
+        <div class="header">
+            <h1>Bienvenido/a CubaLicencia</h1>
+            
+        </div>
+
+        <div>
+            <ul>
+                <a class="btn btn-primary text-white"> Menu</a>
+                <br> <br>
+                 <a class="btn btn-primary text-white" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" href="/listar"  target="Gestionar">Gestionar Usuario</a> 
+                 <br><br>
+                <a class="btn btn-success text-white"th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" href="/listarLic" target="Gestionar">Gestionar Licencia </a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"href="/listarCur" target="Gestionar">Gestionar Curso</a>
+                <br><br>
+                <a class="btn btn-info text-white"th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" href="/listarCT" target="Gestionar">Gestionar Modelo</a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" href="/listarPrac" target="Gestionar">Gestionar Practico</a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"href="/listarETeo"target="Gestionar">Gestionar Teorico</a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"href="/listarG"target="Gestionar">Gestionar Solicitudes</a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}"href="/newG"target="Gestionar">Solicitar Licencia</a>
+                <br><br>
+                <a class="btn btn-info text-white" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}"href="/images.jpg"target="Gestionar">Realizar Pago</a>
+                <br><br>
+                <a class="btn btn-info text-white"th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}" href="/listarLic"target="Gestionar">Ver Estado de licencia</a>
+                <br><br>
+            </ul>
+        </div>
+
+        <label for="template-select">Select a template:</label>
+        <select id="template-select">
+            <optgroup label="Footers">
+                <option selected data-href="Registration-form">Registrarse</option>
+                <option data-href="Log-in-form">Autenticarse</option>
+                <option data-href="Advanced-search-form">Búsqueda Avanzada</option>
+            </optgroup>
+        </select>
+
+    </div>
+
+    <div class="main-content">
+        <iframe src="/listar" name="Gestionar"></iframe>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../demo.js"></script>
+    <script src="http://cdn.tutorialzine.com/misc/enhance/v2.js" async></script>
+</body>
+
+</html>
